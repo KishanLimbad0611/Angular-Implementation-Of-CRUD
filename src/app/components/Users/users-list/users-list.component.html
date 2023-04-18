@@ -1,0 +1,30 @@
+<div class="container">
+
+    <h1 class="mb-3">Users</h1>
+    <input type="text" placeholder="Sort By Name" [(ngModel)] = "nameSearch">
+    <table class="table" *ngIf="users && users.length > 0">
+        <thead>
+            <tr>
+                <th>UserId</th>
+                <th>UserName</th>
+                <th>Email</th>
+                <th>PhoneNumber</th>
+                <th>Address</th>
+                <th>DateOfBirth</th>
+                <th> </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users | filterpipe : nameSearch">
+                <td>{{ user.userId}}</td>
+                <td>{{ user.name}}</td>
+                <td>{{ user.email}}</td>
+                <td>{{ user.phone}}</td>
+                <td>{{ user.address}}</td>
+                <td>{{ user.dateOfBirth |  date:'longDate'}}</td>
+                <td><a [routerLink]="['/users' , 'edit' , user.userId ]">View</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <p *ngIf="!users || users.length <= 0">Sorry! No User Found</p>
+</div>

@@ -1,0 +1,61 @@
+<div class="container">
+    <h1 class="mb-3">Edit User</h1>
+    <div class="row">
+        <div class="col-6">
+          <!-- custompipe -->
+          <h3>{{ userDetails.name | custompipe}}</h3>
+            <form #form="ngForm"  (ngSubmit)="updateUser()">
+                <div class="mb-3">
+                    <label for="id" class="form-label">UserId</label>
+                    <input type="text" class="form-control" id="id" readonly
+                    name="id" [(ngModel)]="userDetails.userId">
+                </div>
+                <div class="mb-3">
+                  <label for="UserName" class="form-label">UserName</label>
+                  <input type="text" class="form-control" id="UserName" 
+                  name="UserName" [(ngModel)]="userDetails.name">
+                </div>
+                <div class="mb-3">
+                    <label for="Email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="Email"
+                    name="Email" [(ngModel)]="userDetails.email">
+                </div>
+                <div class="mb-3">
+                    <label for="PhoneNumber" class="form-label">PhoneNumber</label>
+                    <input type="number" class="form-control" id="PhoneNumber"
+                    name="PhoneNumber" [(ngModel)]="userDetails.phone">
+                </div>
+                <div class="mb-3">
+                    <label for="Address" class="form-label">Address</label>
+                    <input type="text" class="form-control" id="Address"
+                    name="Address" [(ngModel)]="userDetails.address">
+                </div>  
+                <div class="mb-3">
+                    <label for="DOB" class="form-label">DOB</label>
+                    <input type="text" class="form-control" id="DOB"
+                    name="dateOfBirth" [(ngModel)]="userDetails.dateOfBirth">
+                </div>
+                <button type="submit " class="btn btn-success mr-5">Update</button>
+                <button type="button" class="btn btn-danger" (click)="deleteUser(userDetails.userId)">Delete</button>
+            </form>  
+        </div>
+    </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+    
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" (click)="saveChanges()">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+
