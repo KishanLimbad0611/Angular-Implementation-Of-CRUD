@@ -7,7 +7,7 @@ namespace FullStack.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class UsersController : Controller
+    public class UsersController : Controller7
     {
         private readonly FullStackDbContext _fullStackDbContext;
 
